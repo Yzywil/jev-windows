@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "goal": "Set the Name field to the supplied caller input, then click Apply.",
+  "executable": "fixture.exe",
+  "scope": [{"automation_id": "name"}, {"automation_id": "apply"}],
+  "inputs": [{"selector": {"automation_id": "name"}, "value": "Hello Jev 中文"}],
+  "grants": [
+    {"selector": {"automation_id": "name"}, "operation": "set_value"},
+    {"selector": {"automation_id": "apply"}, "operation": "invoke"}
+  ],
+  "assertions": [
+    {"selector": {"automation_id": "result"}, "property": "name", "equals": "Applied: Hello Jev 中文"}
+  ]
+}

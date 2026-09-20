@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible issue without private UI data or credentials.
+body:
+  - type: textarea
+    attributes:
+      label: Environment
+      description: Version, Windows build, Python version, backend version; no personal paths.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Prefer the included fixture. Do not attach real documents or credentials.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected and observed result
+      description: Include the redacted stop code, not raw UI trees.
+    validations:
+      required: true
+

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Jev Windows task v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "goal", "executable", "scope", "assertions"],
+  "properties": {
+    "version": {"const": 1, "type": "integer"},
+    "goal": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "executable": {"type": "string", "pattern": "^[^/\\\\\\r\\n]+\\.[eE][xX][eE]$", "maxLength": 255},
+    "scope": {"type": "array", "minItems": 1, "maxItems": 64, "items": {"$ref": "#/$defs/selector"}},
+    "inputs": {
+      "type": "array", "maxItems": 64,
+      "items": {"type": "object", "additionalProperties": false, "required": ["selector", "value"],
+        "properties": {"selector": {"$ref": "#/$defs/selector"}, "value": {"type": "string", "maxLength": 4096}}}
+    },
+    "grants": {
+      "type": "array", "maxItems": 64,
+      "items": {"type": "object", "additionalProperties": false, "required": ["selector", "operation"],
+        "properties": {"selector": {"$ref": "#/$defs/selector"}, "operation": {"enum": ["invoke", "set_value", "select", "check", "uncheck"]}}}
+    },
+    "assertions": {
+      "type": "array", "minItems": 1, "maxItems": 64,
+      "items": {"type": "object", "additionalProperties": false, "required": ["selector", "property", "equals"],
+        "properties": {"selector": {"$ref": "#/$defs/selector"}, "property": {"enum": ["name", "value", "checked", "selected"]}, "equals": {"type": ["string", "boolean"], "maxLength": 4096}},
+        "if": {"properties": {"property": {"enum": ["checked", "selected"]}}},
+        "then": {"properties": {"equals": {"type": "boolean"}}},
+        "else": {"properties": {"equals": {"type": "string"}}}}
+    }
+  },
+  "$defs": {
+    "selector": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"name": {"type": "string", "minLength": 1, "maxLength": 512}, "automation_id": {"type": "string", "minLength": 1, "maxLength": 512}, "role": {"type": "string", "minLength": 1, "maxLength": 512}},
+      "anyOf": [{"required": ["name"]}, {"required": ["automation_id"]}]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jev-windows"
+version = "0.1.0a1"
+description = "Supervised Windows UI Automation with bounded TypeSafe Jev decisions"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{name = "Jev Windows contributors"}]
+keywords = ["jev", "typesafe", "windows", "ui-automation", "computer-use"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: Microsoft :: Windows :: Windows 11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = []
+
+[project.optional-dependencies]
+windows = ["windows-mcp==0.8.5; sys_platform == 'win32'"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.12,<1", "build>=1.2,<2"]
+
+[project.scripts]
+jev-windows = "jev_windows.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/jev_windows"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "examples", "docs", "scripts", "skills", "README.md", "README.zh-CN.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md", "CHANGELOG.md", "THIRD_PARTY.md", "pyproject.toml", "uv.lock"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+

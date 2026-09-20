@@ -22,6 +22,11 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+Repository = "https://github.com/Yzywil/jev-windows"
+Issues = "https://github.com/Yzywil/jev-windows/issues"
+Documentation = "https://github.com/Yzywil/jev-windows#readme"
+
 [project.optional-dependencies]
 windows = ["windows-mcp==0.8.5; sys_platform == 'win32'"]
 
@@ -47,4 +52,3 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
-

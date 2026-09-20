@@ -6,13 +6,15 @@ desktop benchmark. No private documents or user windows were sent to TypeSafe.
 
 ## Offline
 
-- 94 tests passed on the development host (final release may add more regressions).
+- 103 tests passed on the development host.
 - Ruff lint and format checks passed.
 - Portable simulator: two actions, verified assertion, no API calls.
-- Offline coverage across the whole package: 69%; contracts 96%, policy 100%,
-  runner 87%, provider 81%. Native/worker paths have separate live fixture checks,
+- Offline coverage across the whole package: 71%; contracts 96%, policy 100%,
+  runner 90%, provider 91%. Native/worker paths have separate live fixture checks,
   not full automated offline coverage. Coverage is not a correctness guarantee.
 - Task JSON Schema checked against the fixture task.
+- Wheel installed into a clean virtual environment with no backend dependencies;
+  version and offline simulator passed.
 
 ## Native Windows with deterministic decisions
 
@@ -65,3 +67,8 @@ The repository defines Windows/Linux Python 3.12/3.13 offline jobs and a Windows
 optional-dependency import/fixture compilation job. These do not operate the CI
 desktop or call TypeSafe. Consult the actual GitHub Actions run for remote status;
 local validation does not establish that the remote run passed.
+
+The [first remote CI run](https://github.com/Yzywil/jev-windows/actions/runs/35487359154)
+passed all five jobs for commit `a81f85c` (94 tests at that commit). Additional
+boundary tests subsequently brought the local suite to 103; the release commit's
+own CI is the authority for that final revision.

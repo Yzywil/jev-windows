@@ -55,9 +55,12 @@ caller; the model never generates commands, coordinates, or text to type.
       changelog, MIT license and upstream attribution without copying Jev-cu source.
 - [x] Locked dependencies, Windows/Linux offline CI, packaging artifacts and release workflow.
 - [x] Secret scan of tracked files/package; exclude .env, local state, private traces.
-- [ ] Local git commit and reproducible wheel/sdist/checksums.
+- [x] Local git commit and reproducible wheel/sdist/checksums.
 - [ ] Publish public GitHub repo and alpha release after account/repository resolution.
 - [ ] Inspect remote CI and release assets; record any validation still pending.
+
+Progress: public repository created at https://github.com/Yzywil/jev-windows;
+the first five-job remote CI matrix passed. Alpha release assets are being finalized.
 
 ## Non-goals for v0.1
 

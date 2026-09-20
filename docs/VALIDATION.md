@@ -72,3 +72,11 @@ The [first remote CI run](https://github.com/Yzywil/jev-windows/actions/runs/354
 passed all five jobs for commit `a81f85c` (94 tests at that commit). Additional
 boundary tests subsequently brought the local suite to 103; the release commit's
 own CI is the authority for that final revision.
+
+The [release-commit CI run](https://github.com/Yzywil/jev-windows/actions/runs/35487480768)
+passed all five jobs at `95a90498b6993a9b8349a30faf800a28064904b5`, tagged `v0.1.0a1`.
+That revision contains all 103 offline tests. The public wheel/source archives were
+downloaded after publication: both matched SHA256SUMS.txt and the original local
+build byte-for-byte. Source files inside the archives were also checked against
+the tracked source. The published tag/assets remain immutable; this post-release
+documentation update does not change their contents.

@@ -1,6 +1,6 @@
 # Jev Windows — v0.1.0 release plan
 
-Status: implementation and local validation complete; GitHub publication/CI in progress.
+Status: **v0.1.0a1 published**; local/native/live validation and release-commit CI complete.
 Initial release target: **alpha**, not universal desktop autonomy.
 
 ## Product
@@ -56,11 +56,16 @@ caller; the model never generates commands, coordinates, or text to type.
 - [x] Locked dependencies, Windows/Linux offline CI, packaging artifacts and release workflow.
 - [x] Secret scan of tracked files/package; exclude .env, local state, private traces.
 - [x] Local git commit and reproducible wheel/sdist/checksums.
-- [ ] Publish public GitHub repo and alpha release after account/repository resolution.
-- [ ] Inspect remote CI and release assets; record any validation still pending.
+- [x] Publish public GitHub repo and alpha release after account/repository resolution.
+- [x] Inspect remote CI and release assets; record any validation still pending.
 
-Progress: public repository created at https://github.com/Yzywil/jev-windows;
-the first five-job remote CI matrix passed. Alpha release assets are being finalized.
+Published: https://github.com/Yzywil/jev-windows/releases/tag/v0.1.0a1
+
+Release commit: `95a90498b6993a9b8349a30faf800a28064904b5`.
+All five jobs in https://github.com/Yzywil/jev-windows/actions/runs/35487480768 passed.
+Downloaded wheel and source archive match their published SHA-256 checksums and
+the local build. 103 offline tests passed; native and live proof is in VALIDATION.md.
+Future app coverage and beta gates remain explicitly tracked in ROADMAP.md.
 
 ## Non-goals for v0.1
 
